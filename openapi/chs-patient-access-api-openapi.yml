@@ -1,0 +1,147 @@
+openapi: 3.1.0
+info:
+  title: Community Health Systems Patient Access API
+  description: >-
+    Community Health Systems provides healthcare interoperability APIs
+    pursuant to the CMS Interoperability and Patient Access Final Rule
+    (CMS-9115-F). The Patient Access API allows third-party applications
+    to retrieve data concerning adjudicated claims, encounters, formulary
+    data, and clinical data using FHIR standards.
+  version: '2026-01-01'
+  contact:
+    name: Community Health Systems
+    url: https://www.chs.net
+externalDocs:
+  description: CMS Interoperability Final Rule
+  url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
+servers:
+  - url: https://api.chs.net/fhir/r4
+    description: FHIR R4 Production Server
+tags:
+  - name: Patient
+    description: Patient demographic and clinical data
+  - name: Claims
+    description: Adjudicated claims and encounter data
+  - name: Formulary
+    description: Formulary and medication data
+  - name: Practitioner
+    description: Provider information
+security:
+  - oauth2: []
+paths:
+  /Patient:
+    get:
+      operationId: searchPatients
+      summary: Search patients
+      description: Search for patient records using FHIR Patient resource.
+      tags:
+        - Patient
+      parameters:
+        - name: family
+          in: query
+          schema:
+            type: string
+        - name: given
+          in: query
+          schema:
+            type: string
+        - name: birthdate
+          in: query
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: FHIR Bundle of Patient resources
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+        '401':
+          description: Unauthorized
+  /ExplanationOfBenefit:
+    get:
+      operationId: searchClaims
+      summary: Search claims
+      description: Retrieve adjudicated claims data as ExplanationOfBenefit resources.
+      tags:
+        - Claims
+      parameters:
+        - name: patient
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: FHIR Bundle of ExplanationOfBenefit resources
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+  /MedicationKnowledge:
+    get:
+      operationId: searchFormulary
+      summary: Search formulary
+      description: Retrieve formulary and medication information.
+      tags:
+        - Formulary
+      responses:
+        '200':
+          description: FHIR Bundle of MedicationKnowledge resources
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+  /Practitioner:
+    get:
+      operationId: searchPractitioners
+      summary: Search practitioners
+      description: Search for provider directory information.
+      tags:
+        - Practitioner
+      parameters:
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: specialty
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: FHIR Bundle of Practitioner resources
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.chs.net/oauth2/authorize
+          tokenUrl: https://api.chs.net/oauth2/token
+          scopes:
+            patient/*.read: Read access to patient data
+            launch/patient: Patient launch context
+  schemas:
+    Bundle:
+      type: object
+      properties:
+        resourceType:
+          type: string
+          const: Bundle
+        type:
+          type: string
+        total:
+          type: integer
+        entry:
+          type: array
+          items:
+            type: object
+            properties:
+              resource:
+                type: object
