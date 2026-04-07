@@ -1,5 +1,6 @@
 aid: community-health-systems
-url: https://raw.githubusercontent.com/api-evangelist/community-health-systems/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/community-health-systems/refs/heads/main/apis.yml
 apis:
   - aid: community-health-systems:patient-access-api
     name: Community Health Systems Patient Access API
@@ -8,7 +9,8 @@ apis:
       - FHIR
       - Patient Access
       - Interoperability
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.chs.net
     humanURL: https://www.chs.net
     properties:
@@ -31,7 +33,8 @@ apis:
       - FHIR
       - Provider Directory
       - Interoperability
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.chs.net
     humanURL: https://www.chs.net
     properties:
@@ -42,3 +45,6 @@ apis:
       applications and payers to retrieve provider and pharmacy directory
       information in compliance with CMS interoperability requirements.
       The API uses FHIR standards for healthcare data exchange.
+description: >-
+  For more than 40 years, CHS has been developing and operating healthcare delivery
+  systems committed to helping people get well and live healthier.
