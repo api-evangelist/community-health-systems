@@ -1,16 +1,14 @@
 aid: community-health-systems
-url: 
-  https://raw.githubusercontent.com/api-evangelist/community-health-systems/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/community-health-systems/refs/heads/main/apis.yml
 apis:
   - aid: community-health-systems:patient-access-api
     name: Community Health Systems Patient Access API
     tags:
-      - Healthcare
       - FHIR
-      - Patient Access
+      - Healthcare
       - Interoperability
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Patient Access
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.chs.net
     humanURL: https://www.chs.net
     properties:
@@ -29,12 +27,11 @@ apis:
   - aid: community-health-systems:provider-directory-api
     name: Community Health Systems Provider Directory API
     tags:
-      - Healthcare
       - FHIR
-      - Provider Directory
+      - Healthcare
       - Interoperability
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Provider Directory
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.chs.net
     humanURL: https://www.chs.net
     properties:

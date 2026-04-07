@@ -18,12 +18,12 @@ servers:
   - url: https://api.chs.net/fhir/r4
     description: FHIR R4 Production Server
 tags:
-  - name: Patient
-    description: Patient demographic and clinical data
   - name: Claims
     description: Adjudicated claims and encounter data
   - name: Formulary
     description: Formulary and medication data
+  - name: Patient
+    description: Patient demographic and clinical data
   - name: Practitioner
     description: Provider information
 security:
