@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/community-health-systems/refs/heads/main/json-schema/chs-fhir-bundle-schema.json",
+  "title": "CHS FHIR Bundle",
+  "description": "Schema for a FHIR R4 Bundle returned by the Community Health Systems Patient Access and Provider Directory APIs.",
+  "type": "object",
+  "required": ["resourceType"],
+  "properties": {
+    "resourceType": {
+      "type": "string",
+      "const": "Bundle"
+    },
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["searchset", "collection", "history", "transaction", "transaction-response", "batch", "batch-response", "document", "message"]
+    },
+    "total": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "link": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "relation": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "entry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fullUrl": { "type": "string", "format": "uri" },
+          "resource": {
+            "type": "object",
+            "properties": {
+              "resourceType": {
+                "type": "string",
+                "enum": ["Patient", "ExplanationOfBenefit", "MedicationKnowledge", "Practitioner", "Organization", "Location", "Coverage", "Encounter", "Observation"]
+              },
+              "id": { "type": "string" }
+            },
+            "required": ["resourceType"]
+          }
+        }
+      }
+    }
+  }
+}

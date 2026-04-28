@@ -1,0 +1,75 @@
+# Naftiko capabilities profile for Community Health Systems FHIR APIs.
+# Capabilities reflect the surface required by the CMS Interoperability
+# and Patient Access Final Rule (CMS-9115-F): patient-facing access to
+# claims, clinical, and formulary data, plus a payer/provider directory.
+provider: community-health-systems
+name: CHS Patient Access and Provider Directory
+description: >-
+  FHIR R4 read APIs published by Community Health Systems pursuant to
+  the CMS Interoperability and Patient Access Final Rule. Allows
+  patient-authorized third-party apps to retrieve adjudicated claims,
+  encounters, formulary, and clinical data, and any registered consumer
+  to retrieve provider and pharmacy directory information.
+capabilities:
+  - id: chs.patient.search
+    name: Search patients
+    description: Search Patient resources by family name, given name, or birthdate.
+    api: community-health-systems:patient-access-api
+    inputs:
+      - family
+      - given
+      - birthdate
+    outputs:
+      - bundle
+
+  - id: chs.claims.search
+    name: Search claims
+    description: Retrieve ExplanationOfBenefit resources for a patient.
+    api: community-health-systems:patient-access-api
+    inputs:
+      - patient
+    outputs:
+      - bundle
+
+  - id: chs.formulary.search
+    name: Search formulary
+    description: Retrieve MedicationKnowledge resources for the formulary.
+    api: community-health-systems:patient-access-api
+    inputs: []
+    outputs:
+      - bundle
+
+  - id: chs.practitioner.search
+    name: Search practitioners
+    description: Search Practitioner resources by name or specialty.
+    api: community-health-systems:provider-directory-api
+    inputs:
+      - name
+      - specialty
+    outputs:
+      - bundle
+
+  - id: chs.smart.authorize
+    name: SMART-on-FHIR authorization
+    description: Initiate the SMART-on-FHIR authorization-code flow with patient context.
+    api: community-health-systems:patient-access-api
+    inputs:
+      - client_id
+      - redirect_uri
+      - scope
+      - launch
+    outputs:
+      - authorization_code
+
+  - id: chs.smart.token
+    name: Exchange code for access token
+    description: Exchange the SMART authorization code for a patient-scoped access token.
+    api: community-health-systems:patient-access-api
+    inputs:
+      - code
+      - client_id
+      - redirect_uri
+    outputs:
+      - access_token
+      - patient
+      - expires_in

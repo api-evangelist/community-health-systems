@@ -1,0 +1,71 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "fhir": "http://hl7.org/fhir/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "chs": "https://chs.net/vocab/",
+
+    "Patient": {
+      "@id": "fhir:Patient",
+      "@context": {
+        "id": "@id",
+        "resourceType": "@type",
+        "family": "fhir:Patient.name.family",
+        "given": "fhir:Patient.name.given",
+        "birthDate": {
+          "@id": "fhir:Patient.birthDate",
+          "@type": "xsd:date"
+        },
+        "gender": "fhir:Patient.gender"
+      }
+    },
+
+    "ExplanationOfBenefit": {
+      "@id": "fhir:ExplanationOfBenefit",
+      "@context": {
+        "id": "@id",
+        "resourceType": "@type",
+        "patient": "fhir:ExplanationOfBenefit.patient",
+        "provider": "fhir:ExplanationOfBenefit.provider",
+        "billablePeriod": "fhir:ExplanationOfBenefit.billablePeriod",
+        "diagnosis": "fhir:ExplanationOfBenefit.diagnosis",
+        "item": "fhir:ExplanationOfBenefit.item",
+        "total": "fhir:ExplanationOfBenefit.total"
+      }
+    },
+
+    "MedicationKnowledge": {
+      "@id": "fhir:MedicationKnowledge",
+      "@context": {
+        "id": "@id",
+        "resourceType": "@type",
+        "code": "fhir:MedicationKnowledge.code",
+        "doseForm": "fhir:MedicationKnowledge.doseForm",
+        "manufacturer": "fhir:MedicationKnowledge.manufacturer"
+      }
+    },
+
+    "Practitioner": {
+      "@id": "fhir:Practitioner",
+      "@context": {
+        "id": "@id",
+        "resourceType": "@type",
+        "name": "fhir:Practitioner.name",
+        "specialty": "chs:specialty",
+        "telecom": "fhir:Practitioner.telecom",
+        "address": "fhir:Practitioner.address"
+      }
+    },
+
+    "Bundle": {
+      "@id": "fhir:Bundle",
+      "@context": {
+        "resourceType": "@type",
+        "type": "fhir:Bundle.type",
+        "total": "fhir:Bundle.total",
+        "entry": "fhir:Bundle.entry"
+      }
+    }
+  }
+}
