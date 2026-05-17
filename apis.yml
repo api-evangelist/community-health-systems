@@ -14,7 +14,7 @@ tags:
 type: Index
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
-x-type: company
+kind: company
 created: '2026-03-21'
 modified: '2026-04-26'
 position: Consumer
@@ -111,7 +111,7 @@ common:
   - type: HL7FHIRR4
     url: https://hl7.org/fhir/R4/
   - url: json-ld/community-health-systems-context.jsonld
-    type: JSON-LD
+    type: JSONLD
   - url: json-schema/chs-fhir-bundle-schema.json
     type: JSONSchema
   - url: rules/community-health-systems-rules.yml
