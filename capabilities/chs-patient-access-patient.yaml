@@ -1,0 +1,88 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Community Health Systems Patient Access API — Patient
+  description: 'Community Health Systems Patient Access API — Patient. 1 operations. Lead operation: Search patients. Self-contained
+    Naftiko capability covering one Community Health Systems business surface.'
+  tags:
+  - Community Health Systems
+  - Patient
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    COMMUNITY_HEALTH_SYSTEMS_API_KEY: COMMUNITY_HEALTH_SYSTEMS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chs-patient-access-patient
+    baseUri: https://api.chs.net/fhir/r4
+    description: Community Health Systems Patient Access API — Patient business capability. Self-contained, no shared references.
+    resources:
+    - name: Patient
+      path: /Patient
+      operations:
+      - name: searchpatients
+        method: GET
+        description: Search patients
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: family
+          in: query
+          type: string
+        - name: given
+          in: query
+          type: string
+        - name: birthdate
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.COMMUNITY_HEALTH_SYSTEMS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: chs-patient-access-patient-rest
+    port: 8080
+    description: REST adapter for Community Health Systems Patient Access API — Patient. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/patient
+      name: patient
+      description: REST surface for Patient.
+      operations:
+      - method: GET
+        name: searchpatients
+        description: Search patients
+        call: chs-patient-access-patient.searchpatients
+        with:
+          family: rest.family
+          given: rest.given
+          birthdate: rest.birthdate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chs-patient-access-patient-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Community Health Systems Patient Access API — Patient. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: search-patients
+      description: Search patients
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chs-patient-access-patient.searchpatients
+      with:
+        family: tools.family
+        given: tools.given
+        birthdate: tools.birthdate
+      outputParameters:
+      - type: object
+        mapping: $.

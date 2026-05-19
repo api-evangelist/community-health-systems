@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Community Health Systems Patient Access API — Formulary
+  description: 'Community Health Systems Patient Access API — Formulary. 1 operations. Lead operation: Search formulary. Self-contained
+    Naftiko capability covering one Community Health Systems business surface.'
+  tags:
+  - Community Health Systems
+  - Formulary
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    COMMUNITY_HEALTH_SYSTEMS_API_KEY: COMMUNITY_HEALTH_SYSTEMS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chs-patient-access-formulary
+    baseUri: https://api.chs.net/fhir/r4
+    description: Community Health Systems Patient Access API — Formulary business capability. Self-contained, no shared references.
+    resources:
+    - name: MedicationKnowledge
+      path: /MedicationKnowledge
+      operations:
+      - name: searchformulary
+        method: GET
+        description: Search formulary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.COMMUNITY_HEALTH_SYSTEMS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: chs-patient-access-formulary-rest
+    port: 8080
+    description: REST adapter for Community Health Systems Patient Access API — Formulary. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/medicationknowledge
+      name: medicationknowledge
+      description: REST surface for MedicationKnowledge.
+      operations:
+      - method: GET
+        name: searchformulary
+        description: Search formulary
+        call: chs-patient-access-formulary.searchformulary
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chs-patient-access-formulary-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Community Health Systems Patient Access API — Formulary. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: search-formulary
+      description: Search formulary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chs-patient-access-formulary.searchformulary
+      outputParameters:
+      - type: object
+        mapping: $.
