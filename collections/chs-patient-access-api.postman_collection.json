@@ -1,0 +1,511 @@
+{
+  "item": [
+    {
+      "id": "2aa67a15-5d54-4ec7-aa7c-c760f337acd7",
+      "name": "Claims",
+      "description": {
+        "content": "Adjudicated claims and encounter data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b88cf42-85b1-478b-b835-29e59b591442",
+          "name": "Search claims",
+          "request": {
+            "name": "Search claims",
+            "description": {
+              "content": "Retrieve adjudicated claims data as ExplanationOfBenefit resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ExplanationOfBenefit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e010f16d-979c-4f19-aee4-a5e9db5984b5",
+              "name": "FHIR Bundle of ExplanationOfBenefit resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ExplanationOfBenefit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"string\",\n  \"type\": \"string\",\n  \"total\": 2009,\n  \"entry\": [\n    {\n      \"resource\": {}\n    },\n    {\n      \"resource\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3004634a-b88b-4ee9-86f2-bda3cbf08498",
+      "name": "Formulary",
+      "description": {
+        "content": "Formulary and medication data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae2ac69d-18e6-49a8-a81a-a1f121d95d8e",
+          "name": "Search formulary",
+          "request": {
+            "name": "Search formulary",
+            "description": {
+              "content": "Retrieve formulary and medication information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "MedicationKnowledge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be4e3fe8-b782-4eef-9a78-6c243c115c77",
+              "name": "FHIR Bundle of MedicationKnowledge resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "MedicationKnowledge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"string\",\n  \"type\": \"string\",\n  \"total\": 2009,\n  \"entry\": [\n    {\n      \"resource\": {}\n    },\n    {\n      \"resource\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "75f19594-ace1-45e6-8263-bb6381aa686f",
+      "name": "Patient",
+      "description": {
+        "content": "Patient demographic and clinical data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d26c179b-5923-4cd5-8a77-4ffa7c3630cd",
+          "name": "Search patients",
+          "request": {
+            "name": "Search patients",
+            "description": {
+              "content": "Search for patient records using FHIR Patient resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Patient"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "family",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "given",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "birthdate",
+                  "value": "<date>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb6babfc-cc26-45da-9f9f-b70f469551ba",
+              "name": "FHIR Bundle of Patient resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"string\",\n  \"type\": \"string\",\n  \"total\": 2009,\n  \"entry\": [\n    {\n      \"resource\": {}\n    },\n    {\n      \"resource\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a09e741-e575-4522-a2d2-b6ba7d386a3b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "26b49826-256b-4d31-a7e0-577ed94f3020",
+      "name": "Practitioner",
+      "description": {
+        "content": "Provider information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67128ceb-c699-46a9-be5c-d5c95539b32d",
+          "name": "Search practitioners",
+          "request": {
+            "name": "Search practitioners",
+            "description": {
+              "content": "Search for provider directory information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Practitioner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "specialty",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c28cf680-71a9-4387-ba8c-c3f32dda305c",
+              "name": "FHIR Bundle of Practitioner resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Practitioner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "specialty",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"string\",\n  \"type\": \"string\",\n  \"total\": 2009,\n  \"entry\": [\n    {\n      \"resource\": {}\n    },\n    {\n      \"resource\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.chs.net/fhir/r4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "patient/*.read launch/patient"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.chs.net/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.chs.net/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8d4e5cb9-abb8-4d1b-9d5a-4914f9d8970a",
+    "name": "Community Health Systems Patient Access API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community Health Systems provides healthcare interoperability APIs pursuant to the CMS Interoperability and Patient Access Final Rule (CMS-9115-F). The Patient Access API allows third-party applications to retrieve data concerning adjudicated claims, encounters, formulary data, and clinical data using FHIR standards.\n\nContact Support:\n Name: Community Health Systems",
+      "type": "text/plain"
+    }
+  }
+}
