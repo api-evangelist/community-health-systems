@@ -12,7 +12,7 @@ tags:
   - SMART-on-FHIR
   - Fortune 500
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 kind: company
 created: '2026-03-21'
@@ -34,7 +34,7 @@ apis:
       - Interoperability
       - Patient Access
       - SMART-on-FHIR
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.chs.net/fhir/r4
     humanURL: https://www.chs.net
     properties:
@@ -68,7 +68,7 @@ apis:
       - Healthcare
       - Interoperability
       - Provider Directory
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.chs.net/fhir/r4
     humanURL: https://www.chs.net
     properties:
