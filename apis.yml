@@ -89,6 +89,10 @@ apis:
       - Network adequacy and accessibility reporting
       - Care coordination and referral apps
 common:
+  - type: DomainSecurity
+    url: security/community-health-systems-domain-security.yml
+  - type: Authentication
+    url: authentication/community-health-systems-authentication.yml
   - type: OAuthScopes
     url: scopes/community-health-systems-scopes.yml
   - type: LinkedIn
