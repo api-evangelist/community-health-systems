@@ -89,6 +89,8 @@ apis:
       - Network adequacy and accessibility reporting
       - Care coordination and referral apps
 common:
+  - type: OAuthScopes
+    url: scopes/community-health-systems-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/community-health-systems
   - type: Website

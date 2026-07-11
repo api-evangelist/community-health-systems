@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/chs-patient-access-api-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/chs-patient-access-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.chs.net/oauth2/authorize
+    tokenUrl: https://api.chs.net/oauth2/token
+scopes:
+- scope: launch/patient
+  description: Patient launch context
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/chs-patient-access-api-openapi.yml
+- scope: patient/*.read
+  description: Read access to patient data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/chs-patient-access-api-openapi.yml
