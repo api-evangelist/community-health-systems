@@ -89,6 +89,8 @@ apis:
       - Network adequacy and accessibility reporting
       - Care coordination and referral apps
 common:
+  - type: AgenticAccess
+    url: agentic-access/community-health-systems-agentic-access.yml
   - type: DomainSecurity
     url: security/community-health-systems-domain-security.yml
   - type: Authentication
