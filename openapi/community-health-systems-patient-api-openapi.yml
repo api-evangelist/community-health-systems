@@ -1,0 +1,79 @@
+openapi: 3.1.0
+info:
+  title: Community Health Systems Access Claims Patient API
+  description: Community Health Systems provides healthcare interoperability APIs pursuant to the CMS Interoperability and Patient Access Final Rule (CMS-9115-F). The Patient Access API allows third-party applications to retrieve data concerning adjudicated claims, encounters, formulary data, and clinical data using FHIR standards.
+  version: '2026-01-01'
+  contact:
+    name: Community Health Systems
+    url: https://www.chs.net
+servers:
+- url: https://api.chs.net/fhir/r4
+  description: FHIR R4 Production Server
+security:
+- oauth2: []
+tags:
+- name: Patient
+  description: Patient demographic and clinical data
+paths:
+  /Patient:
+    get:
+      operationId: searchPatients
+      summary: Search patients
+      description: Search for patient records using FHIR Patient resource.
+      tags:
+      - Patient
+      parameters:
+      - name: family
+        in: query
+        schema:
+          type: string
+      - name: given
+        in: query
+        schema:
+          type: string
+      - name: birthdate
+        in: query
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: FHIR Bundle of Patient resources
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Bundle:
+      type: object
+      properties:
+        resourceType:
+          type: string
+          const: Bundle
+        type:
+          type: string
+        total:
+          type: integer
+        entry:
+          type: array
+          items:
+            type: object
+            properties:
+              resource:
+                type: object
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.chs.net/oauth2/authorize
+          tokenUrl: https://api.chs.net/oauth2/token
+          scopes:
+            patient/*.read: Read access to patient data
+            launch/patient: Patient launch context
+externalDocs:
+  description: CMS Interoperability Final Rule
+  url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
