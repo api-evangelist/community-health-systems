@@ -12,7 +12,20 @@ tags:
   - SMART-on-FHIR
   - Fortune 500
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/community-health-systems.png
 access: 3rd-Party
 kind: company
 created: '2026-03-21'
@@ -25,69 +38,90 @@ description: >-
   patient demographics and clinical data, adjudicated claims and encounters, formulary information, and provider
   directory data. The APIs use the HL7 FHIR R4 standard and SMART-on-FHIR authorization for patient-scoped access.
 apis:
-  - aid: community-health-systems:patient-access-api
-    name: Community Health Systems Patient Access API
-    tags:
-      - CMS-9115-F
-      - FHIR
-      - Healthcare
-      - Interoperability
-      - Patient Access
-      - SMART-on-FHIR
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.chs.net/fhir/r4
-    humanURL: https://www.chs.net
-    properties:
-      - url: https://www.chs.net
-        type: Documentation
-      - url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
-        type: CMSFinalRule
-      - url: openapi/chs-patient-access-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      FHIR R4 API published pursuant to the CMS Interoperability and Patient Access Final Rule (CMS-9115-F). Allows
-      third-party applications, with the patient's authorization, to retrieve adjudicated claims and encounters
-      (ExplanationOfBenefit), formulary and medication data (MedicationKnowledge), and clinical data (Patient and
-      related resources). Authentication uses SMART-on-FHIR OAuth2 with patient/launch scopes.
-    x-features:
-      - FHIR R4 conformance
-      - SMART-on-FHIR OAuth2 authorization-code flow
-      - patient/*.read and launch/patient scopes
-      - Patient, ExplanationOfBenefit, MedicationKnowledge resource endpoints
-      - Bundle search-set responses (application/fhir+json)
-    x-use-cases:
-      - Patient-authorized third-party app access to claims
-      - Personal-health-record (PHR) integration for CHS patients
-      - Pharmacy and formulary lookups for member-facing apps
-      - Population-health analytics with patient consent
-  - aid: community-health-systems:provider-directory-api
-    name: Community Health Systems Provider Directory API
-    tags:
-      - CMS-9115-F
-      - FHIR
-      - Healthcare
-      - Interoperability
-      - Provider Directory
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.chs.net/fhir/r4
-    humanURL: https://www.chs.net
-    properties:
-      - url: https://www.chs.net
-        type: Documentation
-      - url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
-        type: CMSFinalRule
-    description: >-
-      FHIR R4 read API exposing provider and pharmacy directory data in compliance with CMS interoperability
-      requirements. Third-party applications can search Practitioner, Organization, and Location resources without
-      patient consent (no PHI is exposed by these directory endpoints).
-    x-features:
-      - FHIR R4 Practitioner, Organization, Location resources
-      - Public read access (no patient consent required)
-      - Search by name, specialty, location
-    x-use-cases:
-      - Public provider/pharmacy directory lookup
-      - Network adequacy and accessibility reporting
-      - Care coordination and referral apps
+- aid: community-health-systems:provider-directory-api
+  name: Community Health Systems Provider Directory API
+  tags:
+  - CMS-9115-F
+  - FHIR
+  - Healthcare
+  - Interoperability
+  - Provider Directory
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://api.chs.net/fhir/r4
+  humanURL: https://www.chs.net
+  properties:
+  - url: https://www.chs.net
+    type: Documentation
+  - url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
+    type: CMSFinalRule
+  description: >-
+    FHIR R4 read API exposing provider and pharmacy directory data in compliance with CMS interoperability
+    requirements. Third-party applications can search Practitioner, Organization, and Location resources
+    without patient consent (no PHI is exposed by these directory endpoints).
+  x-features:
+  - FHIR R4 Practitioner, Organization, Location resources
+  - Public read access (no patient consent required)
+  - Search by name, specialty, location
+  x-use-cases:
+  - Public provider/pharmacy directory lookup
+  - Network adequacy and accessibility reporting
+  - Care coordination and referral apps
+- aid: community-health-systems:community-health-systems-claims-api
+  name: Community Health Systems Claims API
+  description: Adjudicated claims and encounter data
+  humanURL: https://www.chs.net
+  baseURL: https://api.chs.net/fhir/r4
+  tags:
+  - Claims
+  properties:
+  - type: OpenAPI
+    url: openapi/community-health-systems-claims-api-openapi.yml
+  - type: Documentation
+    url: https://www.chs.net
+  - type: CMSFinalRule
+    url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
+- aid: community-health-systems:community-health-systems-formulary-api
+  name: Community Health Systems Formulary API
+  description: Formulary and medication data
+  humanURL: https://www.chs.net
+  baseURL: https://api.chs.net/fhir/r4
+  tags:
+  - Formulary
+  properties:
+  - type: OpenAPI
+    url: openapi/community-health-systems-formulary-api-openapi.yml
+  - type: Documentation
+    url: https://www.chs.net
+  - type: CMSFinalRule
+    url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
+- aid: community-health-systems:community-health-systems-patient-api
+  name: Community Health Systems Patient API
+  description: Patient demographic and clinical data
+  humanURL: https://www.chs.net
+  baseURL: https://api.chs.net/fhir/r4
+  tags:
+  - Patient
+  properties:
+  - type: OpenAPI
+    url: openapi/community-health-systems-patient-api-openapi.yml
+  - type: Documentation
+    url: https://www.chs.net
+  - type: CMSFinalRule
+    url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
+- aid: community-health-systems:community-health-systems-practitioner-api
+  name: Community Health Systems Practitioner API
+  description: Provider information
+  humanURL: https://www.chs.net
+  baseURL: https://api.chs.net/fhir/r4
+  tags:
+  - Practitioner
+  properties:
+  - type: OpenAPI
+    url: openapi/community-health-systems-practitioner-api-openapi.yml
+  - type: Documentation
+    url: https://www.chs.net
+  - type: CMSFinalRule
+    url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
 common:
   - type: AgenticAccess
     url: agentic-access/community-health-systems-agentic-access.yml
