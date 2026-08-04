@@ -1,0 +1,20 @@
+{
+  "provider": "community-health-systems",
+  "sources": [
+    "community-health-systems-claims-api-openapi.yml",
+    "community-health-systems-formulary-api-openapi.yml",
+    "community-health-systems-patient-api-openapi.yml",
+    "community-health-systems-practitioner-api-openapi.yml"
+  ],
+  "outputs": [
+    "community-health-systems-claims-api-openapi.yml",
+    "community-health-systems-formulary-api-openapi.yml",
+    "community-health-systems-patient-api-openapi.yml",
+    "community-health-systems-practitioner-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
