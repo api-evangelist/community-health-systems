@@ -1,0 +1,131 @@
+{
+  "item": [
+    {
+      "id": "d9b7252e-7150-424e-8c96-530f47042045",
+      "name": "Formulary",
+      "description": {
+        "content": "Formulary and medication data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "30730a52-0a02-450b-a5ea-26eaf7357fbd",
+          "name": "Search formulary",
+          "request": {
+            "name": "Search formulary",
+            "description": {
+              "content": "Retrieve formulary and medication information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "MedicationKnowledge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6ac34daa-b685-40bc-948a-07a16db25f40",
+              "name": "FHIR Bundle of MedicationKnowledge resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "MedicationKnowledge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"string\",\n  \"type\": \"string\",\n  \"total\": 6960,\n  \"entry\": [\n    {\n      \"resource\": {}\n    },\n    {\n      \"resource\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.chs.net/fhir/r4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "patient/*.read launch/patient"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.chs.net/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.chs.net/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6534dc66-2429-4f8b-a12f-385b80911320",
+    "name": "Community Health Systems Patient Access Claims Formulary API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community Health Systems provides healthcare interoperability APIs pursuant to the CMS Interoperability and Patient Access Final Rule (CMS-9115-F). The Patient Access API allows third-party applications to retrieve data concerning adjudicated claims, encounters, formulary data, and clinical data using FHIR standards.\n\nContact Support:\n Name: Community Health Systems",
+      "type": "text/plain"
+    }
+  }
+}

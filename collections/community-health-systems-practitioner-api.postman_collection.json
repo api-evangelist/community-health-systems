@@ -1,0 +1,151 @@
+{
+  "item": [
+    {
+      "id": "95ce8078-3d08-4643-9755-85a3cfda1026",
+      "name": "Practitioner",
+      "description": {
+        "content": "Provider information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a484ad8-f65a-4311-97da-ada8df0a2cf7",
+          "name": "Search practitioners",
+          "request": {
+            "name": "Search practitioners",
+            "description": {
+              "content": "Search for provider directory information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Practitioner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "specialty",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a40553c-1069-4e26-a2ed-f5a9a01ee51a",
+              "name": "FHIR Bundle of Practitioner resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Practitioner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "specialty",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"string\",\n  \"type\": \"string\",\n  \"total\": 7255,\n  \"entry\": [\n    {\n      \"resource\": {}\n    },\n    {\n      \"resource\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.chs.net/fhir/r4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "patient/*.read launch/patient"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.chs.net/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.chs.net/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1c53984f-b586-4570-8cbd-b44b6b62a6dc",
+    "name": "Community Health Systems Patient Access Claims Practitioner API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community Health Systems provides healthcare interoperability APIs pursuant to the CMS Interoperability and Patient Access Final Rule (CMS-9115-F). The Patient Access API allows third-party applications to retrieve data concerning adjudicated claims, encounters, formulary data, and clinical data using FHIR standards.\n\nContact Support:\n Name: Community Health Systems",
+      "type": "text/plain"
+    }
+  }
+}

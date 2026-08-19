@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Community Health Systems Patient Access Claims Practitioner API",
+    "version": "2026-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.chs.net/oauth2/authorize",
+      "accessTokenUrl": "https://api.chs.net/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Practitioner",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search practitioners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.chs.net/fhir/r4/Practitioner",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "specialty",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for provider directory information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
