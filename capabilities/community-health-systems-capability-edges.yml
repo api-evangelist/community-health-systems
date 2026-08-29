@@ -11,15 +11,26 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 1
+edge_count: 2
 edges:
 - tag: Patient
   spec_file: community-health-systems-patient-api-openapi.yml
   capability_id: BC-2900.60
   capability_id_l1: BC-2900
   capability_name: Healthcare Interoperability Operations
+  confidence: 0.78
+  evidence: GET /Patient searchPatients Search patients; "allows third-party applications to retrieve
+    data concerning adjudicated claims, encounters, formulary data, and clinical data using FHIR standards"
+  reason: A FHIR R4 Patient search endpoint published to satisfy the CMS Patient Access rule is provider-side
+    health information exchange — operation of FHIR endpoints and patient-initiated data sharing — rather
+    than registration or care delivery.
+- tag: Practitioner
+  spec_file: community-health-systems-practitioner-api-openapi.yml
+  capability_id: BC-2900.60
+  capability_id_l1: BC-2900
+  capability_name: Healthcare Interoperability Operations
   confidence: 0.7
-  evidence: GET /Patient  searchPatients  Search patients — 'allows third-party applications to access
-    patient demographics and clinical data' under CMS-9115-F
-  reason: FHIR Patient search published for the CMS Patient Access rule is health information exchange
-    / interoperability operation rather than registration.
+  evidence: GET /Practitioner searchPractitioners Search practitioners; "healthcare interoperability APIs
+    pursuant to the CMS Interoperability and Patient Access Final Rule"
+  reason: Read-only FHIR Practitioner directory search exposed as part of the CMS interoperability API
+    surface; this is provider-directory data exchange, not credentialing or medical staff governance.
