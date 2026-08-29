@@ -144,6 +144,9 @@ apis:
   - type: CMSFinalRule
     url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
 common:
+  - type: CapabilityMap
+    url: capabilities/community-health-systems-capability-edges.yml
+    name: Community Health Systems Business Capability Map
   - type: AgenticAccess
     url: agentic-access/community-health-systems-agentic-access.yml
   - type: DomainSecurity

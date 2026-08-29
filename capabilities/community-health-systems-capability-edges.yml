@@ -1,0 +1,25 @@
+slug: community-health-systems
+provider: Community Health Systems
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Healthcare Providers
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Patient
+  spec_file: community-health-systems-patient-api-openapi.yml
+  capability_id: BC-2900.60
+  capability_id_l1: BC-2900
+  capability_name: Healthcare Interoperability Operations
+  confidence: 0.7
+  evidence: GET /Patient  searchPatients  Search patients — 'allows third-party applications to access
+    patient demographics and clinical data' under CMS-9115-F
+  reason: FHIR Patient search published for the CMS Patient Access rule is health information exchange
+    / interoperability operation rather than registration.
