@@ -121,6 +121,8 @@ apis:
   humanURL: https://www.chs.net
   baseURL: https://api.chs.net/fhir/r4
   tags:
+  - Patients
+  tags_raw:
   - Patient
   properties:
   - type: OpenAPI
