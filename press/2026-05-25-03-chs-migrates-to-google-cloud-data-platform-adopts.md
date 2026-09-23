@@ -1,7 +1,9 @@
 ---
 title: CHS migrates to Google Cloud data platform, adopts ...
 url: https://www.healthcaredive.com/news/community-health-systems-google-cloud-generative-AI/706130/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Community Health Systems" press release artificial intelligence'
 position: 3
 source: serpapi-google
