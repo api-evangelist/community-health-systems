@@ -146,6 +146,12 @@ apis:
   - type: CMSFinalRule
     url: https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index
 common:
+  - type: Plans
+    url: plans/community-health-systems-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/community-health-systems-rate-limits.yml
+  - type: FinOps
+    url: finops/community-health-systems-finops.yml
   - type: CapabilityMap
     url: capabilities/community-health-systems-capability-edges.yml
     name: Community Health Systems Business Capability Map
