@@ -1,4 +1,4 @@
-# Community Health Systems (community-health-systems)
+# Community Health Systems
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,92 +66,146 @@
 
 Community Health Systems (CHS) is a Fortune 500 hospital operator that owns, leases, and operates general acute care hospitals across the United States. In compliance with the CMS Interoperability and Patient Access Final Rule (CMS-9115-F), CHS publishes FHIR R4 healthcare interoperability APIs that allow third-party applications to access patient demographics and clinical data, adjudicated claims and encounters, formulary information, and provider directory data. The APIs use the HL7 FHIR R4 standard and SMART-on-FHIR authorization for patient-scoped access.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/community-health-systems/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/community-health-systems/refs/heads/main/apis.yml)
+**Areas:** CMS-9115-F · FHIR · Healthcare · Hospitals · Interoperability · Patient Access · Provider Directory · SMART on FHIR · Fortune 500
 
-## Scope
+## Community Health Systems on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Community Health Systems is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/community-health-systems/](https://apis.io/providers/community-health-systems/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- CMS-9115-F
-- FHIR
-- Healthcare
-- Hospitals
-- Interoperability
-- Patient Access
-- Provider Directory
-- SMART-on-FHIR
+- [Community Health Systems Provider Directory API](https://apis.io/apis/community-health-systems/provider-directory-api/) — FHIR R4 read API exposing provider and pharmacy directory data in compliance with CMS interoperability requirements. Third-party applications can search…
+- [Community Health Systems Claims API](https://apis.io/apis/community-health-systems/community-health-systems-claims-api/) — Adjudicated claims and encounter data
+- [Community Health Systems Formulary API](https://apis.io/apis/community-health-systems/community-health-systems-formulary-api/) — Formulary and medication data
+- [Community Health Systems Patient API](https://apis.io/apis/community-health-systems/community-health-systems-patient-api/) — Patient demographic and clinical data
+- [Community Health Systems Practitioner API](https://apis.io/apis/community-health-systems/community-health-systems-practitioner-api/) — Provider information
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Community Health Systems Patient Access API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-FHIR R4 API published pursuant to the CMS Interoperability and Patient Access Final Rule (CMS-9115-F). Allows third-party applications, with the patient's authorization, to retrieve adjudicated claims and encounters (ExplanationOfBenefit), formulary and medication data (MedicationKnowledge), and clinical data (Patient and related resources). Authentication uses SMART-on-FHIR OAuth2 with patient/launch scopes.
+- [Community Health Systems Agentic Access](https://apis.io/agentic-access/community-health-systems/community-health-systems-agentic-access/)
 
-- **Human URL:** [https://www.chs.net](https://www.chs.net)
-- **Base URL:** `https://api.chs.net/fhir/r4`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- CMS-9115-F
-- FHIR
-- Healthcare
-- Interoperability
-- Patient Access
-- SMART-on-FHIR
+- [CHS FHIR Bundle](https://apis.io/schemas/community-health-systems/chs-fhir-bundle/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://www.chs.net)
-- [C M S Final Rule](https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index)
-- [OpenAPI](openapi/chs-patient-access-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/chs-patient-access-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/chs-patient-access-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Linked-data contexts for the provider's vocabulary.
 
-### Community Health Systems Provider Directory API
+- [Community Health Systems Context](https://apis.io/jsonld/community-health-systems/community-health-systems-context/)
 
-FHIR R4 read API exposing provider and pharmacy directory data in compliance with CMS interoperability requirements. Third-party applications can search Practitioner, Organization, and Location resources without patient consent (no PHI is exposed by these directory endpoints).
+#### Collections (5)
 
-- **Human URL:** [https://www.chs.net](https://www.chs.net)
-- **Base URL:** `https://api.chs.net/fhir/r4`
+Postman and Open Collection request collections.
 
-#### Tags
+- [Community Health Systems Patient Access API](https://apis.io/collections/community-health-systems/open-chs-patient-access-api/)
+- [Community Health Systems Patient Access Claims API](https://apis.io/collections/community-health-systems/open-community-health-systems-claims-api/)
+- [Community Health Systems Patient Access Claims Formulary API](https://apis.io/collections/community-health-systems/open-community-health-systems-formulary-api/)
+- [Community Health Systems Access Claims Patient API](https://apis.io/collections/community-health-systems/open-community-health-systems-patient-api/)
+- [Community Health Systems Patient Access Claims Practitioner API](https://apis.io/collections/community-health-systems/open-community-health-systems-practitioner-api/)
 
-- CMS-9115-F
-- FHIR
-- Healthcare
-- Interoperability
-- Provider Directory
+#### Governance rules (2)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://www.chs.net)
-- [C M S Final Rule](https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index)
-- [Postman Collection](collections/chs-patient-access-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/chs-patient-access-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Community Health Systems — jsonschema rules](https://apis.io/rules/community-health-systems/community-health-systems-jsonschema-spectral-rules/)
+- [Community Health Systems API Rules](https://apis.io/rules/community-health-systems/community-health-systems-rules/)
 
-## Common Properties
+#### Security (2)
 
-- [LinkedIn](https://www.linkedin.com/company/community-health-systems)
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Community Health Systems Authentication](https://apis.io/security/community-health-systems/community-health-systems-authentication/)
+- [Community Health Systems Domain Security](https://apis.io/security/community-health-systems/community-health-systems-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Community Health Systems Scopes](https://apis.io/scopes/community-health-systems/community-health-systems-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Community Health Systems Plans Pricing](https://apis.io/plans/community-health-systems/community-health-systems-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Community Health Systems Rate Limits](https://apis.io/rate-limits/community-health-systems/community-health-systems-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Community Health Systems Finops](https://apis.io/finops/community-health-systems/community-health-systems-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.chs.net)
-- [Patient Portal](https://www.chs.net/patients-visitors/)
-- [Investors](https://www.chs.net/investors/)
-- [Privacy Policy](https://www.chs.net/privacy-statement/)
-- [C M S Interoperability](https://www.cms.gov/regulations-and-guidance/guidance/interoperability/index)
-- [H L7 F H I R R4](https://hl7.org/fhir/R4/)
-- [JSON-LD](json-ld/community-health-systems-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/chs-fhir-bundle-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Spectral Rules](rules/community-health-systems-rules.yml) — [Spectral](https://docs.stoplight.io/docs/spectral)
+- [Privacy policy](https://www.chs.net/privacy-statement/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 49.9 |
+| Contract governance | 13.6 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 5.3 |
+
+**Agent readiness 26.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.6** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/community-health-systems/](https://apis.io/providers/community-health-systems/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Community Health Systems: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/community-health-systems/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
